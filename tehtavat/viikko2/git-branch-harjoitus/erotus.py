@@ -1,4 +1,4 @@
 "Erotuksen laskeminen"
 def erotus(x, y):
-    "erotus"
+    "erotusss"
     return x-y
