@@ -1,0 +1,1 @@
+Pidin täydennysehdotuksia hyödyllisinä. Selitys oli oikea, ja sen avulla löytyi toimiva ratkaisu. Testit eivät mielestäni eronneet merkittävästi edellisviikon testeistä. Pylint löysi agenttikoodista joitakin virheitä, mutta ne olivat melko helppoja korjata. Opin käyttämään agentteja harkiten.
