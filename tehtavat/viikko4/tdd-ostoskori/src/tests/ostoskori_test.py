@@ -103,3 +103,13 @@ class TestOstoskori(unittest.TestCase):
         self.kori.poista_tuote(tuote)
 
         self.assertEqual(self.kori.tavaroita_korissa(), 1)
+
+    def test_ainoan_tuotteen_poistaminen_tyhjentaa_korin(self):
+        """Removing the only product leaves the cart empty."""
+        tuote = Tuote("test", 5)
+        self.kori.lisaa_tuote(tuote)
+
+        self.kori.poista_tuote(tuote)
+
+        self.assertEqual(self.kori.tavaroita_korissa(), 0)
+        self.assertEqual(len(self.kori.ostokset()), 0)
