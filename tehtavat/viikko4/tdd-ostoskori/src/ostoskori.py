@@ -29,6 +29,12 @@ class Ostoskori:
 
     def poista_tuote(self, poistettava: Tuote):
         """Remove one unit of a product from the cart."""
+        for ostos in self._ostokset:
+            if ostos.tuote == poistettava:
+                ostos.muuta_lukumaaraa(-1)
+                if ostos.lukumaara() == 0:
+                    self._ostokset.remove(ostos)
+                return
 
     def tyhjenna(self):
         """Remove all purchases from the cart."""
