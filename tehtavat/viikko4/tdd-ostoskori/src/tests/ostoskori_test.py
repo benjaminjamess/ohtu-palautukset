@@ -113,3 +113,14 @@ class TestOstoskori(unittest.TestCase):
 
         self.assertEqual(self.kori.tavaroita_korissa(), 0)
         self.assertEqual(len(self.kori.ostokset()), 0)
+
+    def test_tyhjenna_poistaa_kaikki_ostokset(self):
+        """Emptying the cart removes all purchases."""
+        self.kori.lisaa_tuote(Tuote("test1", 5))
+        self.kori.lisaa_tuote(Tuote("test2", 6))
+
+        self.kori.tyhjenna()
+
+        self.assertEqual(self.kori.tavaroita_korissa(), 0)
+        self.assertEqual(self.kori.hinta(), 0)
+        self.assertEqual(len(self.kori.ostokset()), 0)

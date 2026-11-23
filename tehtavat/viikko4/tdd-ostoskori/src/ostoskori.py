@@ -38,6 +38,7 @@ class Ostoskori:
 
     def tyhjenna(self):
         """Remove all purchases from the cart."""
+        self._ostokset.clear()
 
     def ostokset(self):
         """Return the purchases in the cart."""
