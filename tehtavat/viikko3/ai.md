@@ -1,0 +1,1 @@
+Luotu ohjetiedosto sisälsi itse asiassa kaiken tarvittavan tiedon, eikä minun tarvinnut juurikaan muuttaa mitään. Tekoälyagentti noudatti pääosin pyyntöjäni kirjoittaa testit ennen toteutusta. Testit menivätkin rikki, kun rikoin toteutuksen tahallani. Opin käyttämään tekoälyä vastuullisemmin ja varmistamaan itse, että testit menevät läpi.

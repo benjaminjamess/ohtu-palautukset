@@ -1,0 +1,2 @@
+
+Agentti toimi mielestäni loogisesti. Testikoodia on nyt helpompi lukea. Se ei muuttanut mitään muuta kuin sen, mitä pyysin, olin nimittäin ohjeistuksessani täsmällinen. Minun ei tarvinnut korjata tehtyjä muutoksia.
