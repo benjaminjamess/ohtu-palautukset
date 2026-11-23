@@ -16,7 +16,7 @@ class Ostoskori:
 
     def hinta(self):
         """Return the total price of the cart."""
-        return 0
+        return sum(ostos.hinta() for ostos in self._ostokset)
 
     def lisaa_tuote(self, lisattava: Tuote):
         """Add one unit of a product to the cart."""
@@ -35,3 +35,4 @@ class Ostoskori:
 
     def ostokset(self):
         """Return the purchases in the cart."""
+        return self._ostokset

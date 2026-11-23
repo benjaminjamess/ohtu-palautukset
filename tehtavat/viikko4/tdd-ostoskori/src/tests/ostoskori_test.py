@@ -22,3 +22,38 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(tuote)
         self.kori.lisaa_tuote(tuote)
         self.assertEqual(self.kori.tavaroita_korissa(), 2)
+
+    def test_priceofone(self):
+        """One product costs the same as that product"""
+        tuote=Tuote("test",5)
+        self.kori.lisaa_tuote(tuote)
+        self.assertEqual(self.kori.hinta(), tuote.hinta())
+
+    def test_amounttwo(self):
+        """Adding two products creates two products"""
+        tuote1=Tuote("test1",5)
+        tuote2=Tuote("test2", 6)
+        self.kori.lisaa_tuote(tuote1)
+        self.kori.lisaa_tuote(tuote2)
+        self.assertEqual(self.kori.tavaroita_korissa(), 2)
+
+    def test_sumofproduct(self):
+        """Adding two different products equals sum of product prices"""
+        tuote1=Tuote("test1",5)
+        tuote2=Tuote("test2",7)
+        self.kori.lisaa_tuote(tuote1)
+        self.kori.lisaa_tuote(tuote2)
+        self.assertEqual(self.kori.hinta(), tuote1.hinta()+tuote2.hinta())
+    def test_priceequal2timesproductprice(self):
+        """Adding two of the same products, the cart price is equal to 2 times the product price"""
+        tuote=Tuote("test",5)
+        self.kori.lisaa_tuote(tuote)
+        self.kori.lisaa_tuote(tuote)
+        self.assertEqual(self.kori.hinta(), tuote.hinta()*2)
+
+    def test_ostoskoriin_lisatty_tuote_nakyy_ostoksissa(self):
+        """Adding one product creates one purchase in the cart."""
+        tuote = Tuote("test", 5)
+        self.kori.lisaa_tuote(tuote)
+
+        self.assertEqual(len(self.kori.ostokset()), 1)
