@@ -6,7 +6,7 @@ from tuote import Tuote
 
 
 class TestOstoskori(unittest.TestCase):
-    """Test shopping-cart behavior."""
+    """Test shopping-cart behavior, test."""
 
     def setUp(self):
         self.kori = Ostoskori()
