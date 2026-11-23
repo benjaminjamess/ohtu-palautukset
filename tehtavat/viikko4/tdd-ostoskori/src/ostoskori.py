@@ -1,23 +1,37 @@
+"""Shopping-cart implementation."""
+
+from ostos import Ostos
 from tuote import Tuote
 
+
 class Ostoskori:
+    """Store purchases and calculate cart contents."""
+
     def __init__(self):
-        pass
+        self._ostokset = []
 
     def tavaroita_korissa(self):
-        pass
+        """Return the number of individual items in the cart."""
+        return sum(ostos.lukumaara() for ostos in self._ostokset)
 
     def hinta(self):
+        """Return the total price of the cart."""
         return 0
 
     def lisaa_tuote(self, lisattava: Tuote):
-        pass
+        """Add one unit of a product to the cart."""
+        for ostos in self._ostokset:
+            if ostos.tuote == lisattava:
+                ostos.muuta_lukumaaraa(1)
+                return
+
+        self._ostokset.append(Ostos(lisattava))
 
     def poista_tuote(self, poistettava: Tuote):
-        pass
+        """Remove one unit of a product from the cart."""
 
     def tyhjenna(self):
-        pass
+        """Remove all purchases from the cart."""
 
     def ostokset(self):
-        pass
+        """Return the purchases in the cart."""
