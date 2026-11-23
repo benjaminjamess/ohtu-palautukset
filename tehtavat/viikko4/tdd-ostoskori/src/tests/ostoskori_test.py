@@ -57,3 +57,12 @@ class TestOstoskori(unittest.TestCase):
         self.kori.lisaa_tuote(tuote)
 
         self.assertEqual(len(self.kori.ostokset()), 1)
+
+    def test_ostos_sisaltaa_tuotteen_nimen_ja_maaran(self):
+        """The purchase stores the product name and quantity."""
+        tuote = Tuote("test", 5)
+        self.kori.lisaa_tuote(tuote)
+
+        ostos = self.kori.ostokset()[0]
+        self.assertEqual(ostos.tuotteen_nimi(), tuote.nimi())
+        self.assertEqual(ostos.lukumaara(), 1)
