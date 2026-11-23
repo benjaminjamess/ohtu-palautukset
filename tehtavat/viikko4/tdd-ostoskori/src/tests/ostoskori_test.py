@@ -58,6 +58,15 @@ class TestOstoskori(unittest.TestCase):
 
         self.assertEqual(len(self.kori.ostokset()), 1)
 
+    def test_kaksi_eri_tuotetta_luo_kaksi_ostosta(self):
+        """Adding two different products creates two purchases."""
+        tuote1 = Tuote("test1", 5)
+        tuote2 = Tuote("test2", 6)
+        self.kori.lisaa_tuote(tuote1)
+        self.kori.lisaa_tuote(tuote2)
+
+        self.assertEqual(len(self.kori.ostokset()), 2)
+
     def test_ostos_sisaltaa_tuotteen_nimen_ja_maaran(self):
         """The purchase stores the product name and quantity."""
         tuote = Tuote("test", 5)
