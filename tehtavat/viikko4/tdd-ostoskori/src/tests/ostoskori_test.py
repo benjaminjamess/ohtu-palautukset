@@ -75,6 +75,16 @@ class TestOstoskori(unittest.TestCase):
 
         self.assertEqual(len(self.kori.ostokset()), 1)
 
+    def test_kaksi_samaa_tuotetta_nimena_ja_maarana_yhdessa_ostoksessa(self):
+        """One purchase stores the shared product name and quantity two."""
+        tuote = Tuote("test", 5)
+        self.kori.lisaa_tuote(tuote)
+        self.kori.lisaa_tuote(tuote)
+
+        ostos = self.kori.ostokset()[0]
+        self.assertEqual(ostos.tuotteen_nimi(), tuote.nimi())
+        self.assertEqual(ostos.lukumaara(), 2)
+
     def test_ostos_sisaltaa_tuotteen_nimen_ja_maaran(self):
         """The purchase stores the product name and quantity."""
         tuote = Tuote("test", 5)
